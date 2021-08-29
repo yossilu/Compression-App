@@ -6,6 +6,16 @@ const pool = require("../database/db.js");
 * Gets all records from party_transaction table.
 *
 */
+export const createTransactionTable = async (req: any, res: any) => {
+    try {
+        const createdTable = await pool.query("CREATE TABLE IF NOT EXISTS party_transactions(traidingParty VARCHAR(255) NOT NULL, counterparty VARCHAR(255) NOT NULL, amount INTEGER);")
+        res.json(createdTable.rows);
+
+    } catch (err) {
+
+    }
+}
+
 export const getAll = async (req: any, res: any) => {
     try {
         const allTransactions = await pool.query("SELECT * FROM party_transactions")
