@@ -7,7 +7,6 @@ const router = express.Router();
  Route to the transactions Controller
 *
 */
-router.get('/', createTransactionTable); 
 
 router.get('/getAll', getAll); 
 
